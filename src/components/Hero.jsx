@@ -182,7 +182,7 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-6 mb-10">
               <div className="bg-white/5 border border-white/5 rounded-2xl p-4">
                 <h3 className="text-4xl font-display font-bold text-white mb-1 tracking-tight">
-                  20<span className="text-sky-500">+</span>
+                  25<span className="text-sky-500">+</span>
                 </h3>
                 <p className="font-mono text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
                   Members
@@ -190,7 +190,7 @@ export default function Hero() {
               </div>
               <div className="bg-white/5 border border-white/5 rounded-2xl p-4">
                 <h3 className="text-4xl font-display font-bold text-white mb-1 tracking-tight">
-                  5<span className="text-sky-500">+</span>
+                  6
                 </h3>
                 <p className="font-mono text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
                   Domains
