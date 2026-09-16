@@ -5,6 +5,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const domains = [
   { 
+    id: 'DSA', label: 'Data Structures & Algorithms', color: '#10b981', 
+    tagline: 'Master the logic of computation.',
+    desc: 'The backbone of elite software engineering. Develop an unbreakable foundation in algorithmic thinking, optimization, and advanced problem-solving techniques.',
+    skills: ['C++', 'Java', 'Dynamic Programming', 'Graph Theory', 'Trees', 'Time Complexity'],
+    builds: ['Competitive programming profiles', 'Optimized search engines', 'FAANG interview prep']
+  },
+  { 
     id: 'WEB', label: 'Web Development', color: '#3b82f6', 
     tagline: 'Architect the modern internet.',
     desc: 'From responsive front-ends to robust, scalable back-ends. Master the full lifecycle of web applications, focusing on performance, security, and user experience.',
@@ -19,17 +26,10 @@ const domains = [
     builds: ['Computer vision systems', 'NLP chatbots', 'Predictive market models']
   },
   { 
-    id: 'DSA', label: 'Data Structures & Algorithms', color: '#10b981', 
-    tagline: 'Master the logic of computation.',
-    desc: 'The backbone of elite software engineering. Develop an unbreakable foundation in algorithmic thinking, optimization, and advanced problem-solving techniques.',
-    skills: ['C++', 'Java', 'Dynamic Programming', 'Graph Theory', 'Trees', 'Time Complexity'],
-    builds: ['Competitive programming profiles', 'Optimized search engines', 'FAANG interview prep']
-  },
-  { 
     id: 'APP', label: 'App Development', color: '#0ea5e9', 
     tagline: 'Ship native experiences to every pocket.',
     desc: 'Build fluid, cross-platform mobile applications. Learn state management, local databases, and native device APIs to bring ideas from Figma to the App Store.',
-    skills: ['Flutter', 'Dart', 'React Native', 'Firebase', 'SQLite', 'UI/UX Design','Kotlin'],
+    skills: ['Kotlin','Flutter', 'Dart', 'React Native', 'Firebase', 'SQLite', 'UI/UX Design'],
     builds: ['Social networking apps', 'Fitness trackers', 'Cross-platform utilities']
   },
   { 
@@ -39,6 +39,15 @@ const domains = [
     skills: ['Unity', 'C#', 'Godot', 'C++', 'Blender', 'HLSL/GLSL Shaders'],
     builds: ['2D Physics platformers', '3D multiplayer arenas', 'Procedural level generators']
   },
+  { 
+    id: 'CYBER', 
+    label: 'Cyber Security', 
+    color: '#10b981', 
+    tagline: 'Defend systems and safeguard digital assets.',
+    desc: 'Master the art of digital defense and penetration testing. Learn cryptography, network protocols, threat modeling, and incident response to protect infrastructure from evolving cyber attacks.',
+    skills: ['Python', 'Kali Linux', 'Wireshark', 'Bash', 'Metasploit', 'Cryptography'],
+    builds: ['Network packet sniffers', 'Automated vulnerability scanners', 'Custom encryption tools']
+}
 ];
 
 export default function Domains() {

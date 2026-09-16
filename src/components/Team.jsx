@@ -177,6 +177,56 @@ const teamData = [
     av: "RM",
     linkedin: "#",
   },
+  {
+    id: 22,
+    name: "Vipin Sharma",
+    role: "Tech  ",
+    category: "Tech Team",
+    av: "VS",
+    linkedin: "https://www.linkedin.com/in/vipin-sharma-4a709437b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },{
+    id: 23,
+    name: "Vijit Aheer",
+    role: "Tech ",
+    category: "Tech Team",
+    av: "VA",
+    linkedin: "https://www.linkedin.com/in/vijit-aheer-78615337b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },{
+    id: 24,
+    name: "Ritaj Shukla",
+    role: "Media ",
+    category: "Media Team",
+    av: "RS",
+    linkedin: "https://www.linkedin.com/in/ritaj-shukla-893b8a370?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },{
+    id: 25,
+    name: "Nikita Chawla",
+    role: "Media ",
+    category: "Media Team",
+    av: "NC",
+    linkedin: "https://www.linkedin.com/in/nikita-chawla-62bb9637a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },{
+    id: 26,
+    name: "Shrawan Kumar",
+    role: "Media ",
+    category: "Media Team",
+    av: "SK",
+    linkedin: "",
+  },{
+    id: 27,
+    name: "Anuj Kumar",
+    role: "DSA ",
+    category: "Mentorship",
+    av: "AK",
+    linkedin: "#",
+  },{
+    id: 28,
+    name: "Mankirat Kaur",
+    role: "Media / DSA ",
+    category: "Media Team",
+    av: "MK",
+    linkedin: "www.linkedin.com/in/mankirat-kaur-4101av",
+  },
 ];
 
 const categories = [
