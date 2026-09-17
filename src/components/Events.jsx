@@ -9,12 +9,12 @@ const events = [
     id: 1, 
     type: 'WORKSHOP', 
     status: 'active', 
-    title: 'CTC Coding Workshop 2026',
-    date: 'April 1, 2026',
+    title: 'CTC Coding Workshop 2026 (session 2)',
+    date: 'September 17, 2026',
     loc: 'SLIET Campus',
-    desc: 'Registrations OPEN for B.E & Diploma students. Domains: AI/ML, Cyber Security, Web/App/Game Dev. Note: DSA/CP is mandatory for all selected participants.',
-    link: 'https://forms.gle/rPw7LHgCfFmGBQny9',
-    linkText: 'Register Now →'
+    desc: 'Domains: AI/ML, Cyber Security, Web/App/Game Dev. Note: DSA/CP is mandatory for all selected participants.',
+    link: 'https://github.com/cut-to-code-sliet/ctc-workshop-2026/blob/main/README.md',
+    linkText: 'More Info →'
   },
   { id: 2, type: 'EVENT',    title: 'Upcoming Event Name', date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Details will be announced soon.' },
   { id: 3, type: 'NOTICE',   title: 'Important Notice',    date: 'TBD', loc: 'TBD', status: 'active',   desc: 'Keep an eye on this board for official club announcements.' },

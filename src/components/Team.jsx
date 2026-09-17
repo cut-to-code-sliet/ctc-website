@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const teamData = [
-  {
+    {
     id: 1,
     name: "Aryan Singh",
     role: "Coordinator / Web Lead",
@@ -125,7 +125,7 @@ const teamData = [
     role: "Web Dev Mentor",
     category: "Mentorship",
     av: "AP",
-    linkedin: "#",
+    linkedin: "www.linkedin.com/in/ankit-kumar-pandey-10184b338",
   },
   {
     id: 16,
@@ -175,7 +175,7 @@ const teamData = [
     role: "Media ",
     category: "Media Team",
     av: "RM",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/subham-khicher-6a61283ba?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
   {
     id: 22,
@@ -238,10 +238,22 @@ const categories = [
   "Mentorship",
 ];
 
-// Reusable LinkedIn Icon component
+// --- Icons ---
 const LinkedinIcon = ({ className = "w-3.5 h-3.5" }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+  </svg>
+);
+
+const ChevronLeft = () => (
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
+const ChevronRight = () => (
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
   </svg>
 );
 
@@ -282,7 +294,7 @@ export default function Team() {
   const scrollRef = useRef(null);
 
   // Scroll visibility states
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showLeftArrow, setShowLeftArrow] = useState(false); // Hidden at start
   const [showRightArrow, setShowRightArrow] = useState(true);
 
   const filteredTeam =
@@ -290,21 +302,19 @@ export default function Team() {
       ? teamData
       : teamData.filter((m) => m.category === activeCategory);
 
-  // --- NEW: Scroll Check Logic ---
+  // Scroll Check Logic
   const checkArrows = useCallback(() => {
     if (!scrollRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
     const maxScroll = scrollWidth - clientWidth;
 
-    // Show left arrow if scrolled away from the start
+    // Conditionally show/hide based on exact pixel position
     setShowLeftArrow(scrollLeft > 5);
-    // Show right arrow if there is still room to scroll
     setShowRightArrow(Math.ceil(scrollLeft) < maxScroll - 5);
   }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      // Moves ~1 card width per click
       const scrollAmount = direction === "left" ? -350 : 350;
       scrollRef.current.scrollBy({
         left: scrollAmount,
@@ -313,23 +323,20 @@ export default function Team() {
     }
   };
 
-  // Attach event listeners for scroll and resize
   useEffect(() => {
     checkArrows();
     window.addEventListener("resize", checkArrows);
     return () => window.removeEventListener("resize", checkArrows);
   }, [checkArrows, filteredTeam]);
 
-  // Reset scroll position when category changes
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
     }
-    // Small timeout ensures the DOM updates before checking bounds
     setTimeout(checkArrows, 50);
   }, [activeCategory, checkArrows]);
 
-  // --- GSAP Animations ---
+  // GSAP Animations
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -366,7 +373,6 @@ export default function Team() {
       ref={sectionRef}
       className="relative py-36 bg-slate-900 border-t border-slate-800"
     >
-      {/* Hide Scrollbar via inline style block */}
       <style>
         {`
           .hide-scrollbar::-webkit-scrollbar {
@@ -380,41 +386,13 @@ export default function Team() {
       </style>
 
       <div className="max-w-7xl mx-auto px-8">
-        <div className="mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <p className="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase mb-4">
-              03 — Team
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-100">
-              The <span className="text-blue-500">Builders</span>
-            </h2>
-          </div>
-
-          {/* Connected Scroll Arrows */}
-          {filteredTeam.length > 0 && (
-            <div className="hidden md:flex gap-3">
-              <button
-                onClick={() => scroll("left")}
-                disabled={!showLeftArrow}
-                className={`w-10 h-10 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center shadow-sm overflow-hidden transition-all ${showLeftArrow
-                    ? "text-slate-400 hover:text-slate-200 hover:border-slate-500 cursor-pointer"
-                    : "text-slate-600 opacity-50 cursor-not-allowed"
-                  }`}
-              >
-                ←
-              </button>
-              <button
-                onClick={() => scroll("right")}
-                disabled={!showRightArrow}
-                className={`w-10 h-10 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center shadow-sm overflow-hidden transition-all ${showRightArrow
-                    ? "text-slate-400 hover:text-slate-200 hover:border-slate-500 cursor-pointer"
-                    : "text-slate-600 opacity-50 cursor-not-allowed"
-                  }`}
-              >
-                →
-              </button>
-            </div>
-          )}
+        <div className="mb-16 text-center md:text-left">
+          <p className="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase mb-4">
+            03 — Team
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-100">
+            The <span className="text-blue-500">Builders</span>
+          </h2>
         </div>
 
         {/* --- Static Faculty Advisor Section --- */}
@@ -425,11 +403,7 @@ export default function Team() {
               <div className="w-24 h-24 rounded-full border-4 border-slate-700 bg-slate-900 flex items-center justify-center font-display text-4xl font-bold text-white mb-6 shadow-2xl relative">
                 DS
                 <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-blue-500 rounded-full border-4 border-slate-800 flex items-center justify-center shadow-lg">
-                  <svg
-                    className="w-3.5 h-3.5 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
                   </svg>
                 </div>
@@ -444,22 +418,15 @@ export default function Team() {
               </div>
               <div className="w-16 h-px bg-slate-600 my-6 shrink-0" />
               <p className="font-body text-base md:text-lg text-slate-300 mb-8 max-w-sm leading-relaxed">
-                HOD, Department of Computer Science & Engineering, SLIET
-                Longowal.
+                HOD, Department of Computer Science & Engineering, SLIET Longowal.
               </p>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-8 py-3 rounded-full bg-blue-600 text-white font-mono text-xs uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-              >
+              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 px-8 py-3 rounded-full bg-blue-600 text-white font-mono text-xs uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-lg hover:-translate-y-0.5 active:translate-y-0">
                 <span>Connect on LinkedIn</span>
                 <LinkedinIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
         </div>
-        {/* --- End Static Advisor Section --- */}
 
         {/* Categories */}
         <div className="flex flex-wrap gap-2 mb-12 justify-center md:justify-start">
@@ -467,36 +434,63 @@ export default function Team() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-md font-mono text-xs tracking-widest uppercase transition-all duration-300 border ${activeCategory === cat
+              className={`px-4 py-2 rounded-md font-mono text-xs tracking-widest uppercase transition-all duration-300 border ${
+                activeCategory === cat
                   ? "bg-slate-800 border-blue-500/50 text-blue-400 shadow-sm"
                   : "bg-transparent border-slate-700 text-slate-500 hover:border-slate-500 hover:text-slate-300"
-                }`}
+              }`}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {/* --- NEW: Scrollable Team Container --- */}
-        <div
-          ref={scrollRef}
-          onScroll={checkArrows}
-          className="flex overflow-x-auto gap-6 pb-6 hide-scrollbar scroll-smooth"
-        >
-          {filteredTeam.length > 0 ? (
-            filteredTeam.map((m) => (
-              <div
-                key={m.id || m.name} // Always ensure you have a unique key!
-                className="w-[85vw] md:w-[320px] shrink-0"
-              >
-                <Card m={m} />
-              </div>
-            ))
-          ) : (
-            <p className="text-slate-500 font-mono text-sm">
-              No members found for this category.
-            </p>
+        {/* --- SCROLL CONTAINER WITH SIDE ARROWS --- */}
+        <div className="relative group">
+          
+          {/* Left Floating Arrow (Hidden if at start) */}
+          {showLeftArrow && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -ml-5 md:-ml-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 text-white border border-slate-600 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:bg-blue-600 hover:border-blue-500 hover:scale-110 transition-all duration-200 cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft />
+            </button>
           )}
+
+          <div
+            ref={scrollRef}
+            onScroll={checkArrows}
+            className="flex overflow-x-auto gap-6 pb-6 hide-scrollbar scroll-smooth relative z-0"
+          >
+            {filteredTeam.length > 0 ? (
+              filteredTeam.map((m, index) => (
+                <div
+                  key={m.id || index}
+                  className="w-[85vw] md:w-[320px] shrink-0"
+                >
+                  <Card m={m} />
+                </div>
+              ))
+            ) : (
+              <p className="text-slate-500 font-mono text-sm w-full text-center">
+                No members found for this category.
+              </p>
+            )}
+          </div>
+
+          {/* Right Floating Arrow (Hidden if at end) */}
+          {showRightArrow && filteredTeam.length > 0 && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 -mr-5 md:-mr-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 text-white border border-slate-600 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:bg-blue-600 hover:border-blue-500 hover:scale-110 transition-all duration-200 cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <ChevronRight />
+            </button>
+          )}
+
         </div>
       </div>
     </section>
