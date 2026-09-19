@@ -409,7 +409,7 @@ export default function Team() {
                 </div>
               </div>
               <h3 className="font-display text-2xl md:text-3xl font-extrabold text-slate-100 tracking-tight">
-                Dr. Damanpreet Singh
+                Prof. Damanpreet Singh
               </h3>
               <div className="mt-2.5 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/30">
                 <p className="font-mono text-xs md:text-sm text-blue-300 font-semibold tracking-widest uppercase">

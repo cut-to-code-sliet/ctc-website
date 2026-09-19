@@ -33,13 +33,6 @@ const domains = [
     builds: ['Social networking apps', 'Fitness trackers', 'Cross-platform utilities']
   },
   { 
-    id: 'GAME', label: 'Game Development', color: '#8b5cf6', 
-    tagline: 'Engineer immersive digital worlds.',
-    desc: 'Combine mathematics, physics, and art. Learn game loops, rendering pipelines, collision detection, and shader programming to create interactive experiences.',
-    skills: ['Unity', 'C#', 'Godot', 'C++', 'Blender', 'HLSL/GLSL Shaders'],
-    builds: ['2D Physics platformers', '3D multiplayer arenas', 'Procedural level generators']
-  },
-  { 
     id: 'CYBER', 
     label: 'Cyber Security', 
     color: '#10b981', 

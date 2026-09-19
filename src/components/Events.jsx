@@ -15,10 +15,20 @@ const events = [
     desc: 'Domains: AI/ML, Cyber Security, Web/App/Game Dev. Note: DSA/CP is mandatory for all selected participants.',
     link: 'https://github.com/cut-to-code-sliet/ctc-workshop-2026/blob/main/README.md',
     linkText: 'More Info →'
+  },{
+    id: 2, 
+    type: 'WORKSHOP', 
+    status: 'recent', 
+    title: 'CTC Coding Workshop 2026 (session 1)',
+    date: 'April 1, 2026',
+    loc: 'SLIET Campus',
+    desc: 'Domains: AI/ML, Cyber Security, Web/App Dev.',
+    link: '',
+    linkText: 'More Info →'
   },
-  { id: 2, type: 'EVENT',    title: 'Upcoming Event Name', date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Details will be announced soon.' },
-  { id: 3, type: 'NOTICE',   title: 'Important Notice',    date: 'TBD', loc: 'TBD', status: 'active',   desc: 'Keep an eye on this board for official club announcements.' },
-  { id: 4, type: 'CONTEST',  title: 'Upcoming Contest',    date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Get your coding skills ready.' },
+  { id: 3, type: 'EVENT',    title: 'Upcoming Event Name', date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Details will be announced soon.' },
+  { id: 4, type: 'NOTICE',   title: 'Important Notice',    date: 'TBD', loc: 'TBD', status: 'active',   desc: 'Keep an eye on this board for official club announcements.' },
+  { id: 5, type: 'CONTEST',  title: 'Upcoming Contest',    date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Get your coding skills ready.' },
 ];
 
 const filters = ['ALL', 'EVENT', 'WORKSHOP', 'NOTICE', 'CONTEST'];
@@ -50,8 +60,9 @@ export default function Events() {
   }, [filter]);
 
   // Status badge styling
-  const statusLabel = { upcoming: 'Upcoming', active: 'Active', past: 'Past' };
+  const statusLabel = { upcoming: 'Upcoming', active: 'Active', past: 'Past',recent:'Recent' };
   const statusStyle = {
+    recent:'text-red-400 bg-red-400/10 border-blue-400/20',
     upcoming: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
     active:   'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
     past:     'text-slate-500 bg-slate-800 border-slate-700',

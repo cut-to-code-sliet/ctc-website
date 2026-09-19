@@ -146,10 +146,10 @@ export default function Hero() {
 
                 <div className="relative z-10">
                   <p className="font-body text-base md:text-lg text-white font-semibold tracking-wide">
-                    Dr. Damanpreet Singh
+                    Prof. Damanpreet Singh
                   </p>
                   <p className="font-mono text-[10px] text-sky-400 uppercase tracking-wider mt-0.5 font-medium">
-                    HOD (CSE Department, SLIET)
+                    CSE Department, SLIET
                   </p>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function Hero() {
               </div>
               <div className="bg-white/5 border border-white/5 rounded-2xl p-4">
                 <h3 className="text-4xl font-display font-bold text-white mb-1 tracking-tight">
-                  6
+                  5
                 </h3>
                 <p className="font-mono text-[10px] text-stone-400 uppercase tracking-widest font-semibold">
                   Domains

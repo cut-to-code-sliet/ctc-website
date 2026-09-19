@@ -7,7 +7,7 @@ const lines = [
   { p: '$ ', t: 'whoami',                          c: 'text-blue-400', d: 0    },
   { p: '  ', t: 'cut_to_code_member',              c: 'text-slate-300', d: 400  },
   { p: '$ ', t: 'ls domains/',                     c: 'text-blue-400', d: 900  },
-  { p: '  ', t: 'web_dev  ai_ml  dsa  app  games', c: 'text-slate-400', d: 1400 },
+  { p: '  ', t: 'web_dev  ai_ml  dsa  app ', c: 'text-slate-400', d: 1400 },
   { p: '$ ', t: 'cat mission.txt',                 c: 'text-blue-400', d: 2000 },
   { p: '  ', t: 'Build. Break. Learn. Repeat.',    c: 'text-slate-300', d: 2500 },
   { p: '$ ', t: 'join --club cut_to_code',         c: 'text-blue-400', d: 3400 },
